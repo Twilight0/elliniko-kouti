@@ -36,6 +36,8 @@ def sanitize(text, dont_change_case=False, level=2):
                 w.capitalize() if any([w.capitalize().strip('!.;?,') == n for n in names]) else w for w in text.split()
             )
 
+        text = fix_time(text)
+
     return text
 
 
@@ -96,6 +98,12 @@ def fix_spaces(text):
 def fix_dashes(text):
 
     text = re.sub(r' ?-{2,} ?', r' -- ', text)
+
+    return text
+
+def fix_time(text):
+
+    text = text
 
     return text
 
